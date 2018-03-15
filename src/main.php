@@ -4,15 +4,18 @@
 const DEFAULT_STRING = '1234567890abcdefghijklmnopqrstuvwxyz/*-+.,!#$%&()~|_';
 
 
-$randomString = random();
+$randomString = random(intval($argv[1]) ?: 8);
+
+echo "パスワード：\n";
 echo $randomString . "\n";
-echo password_hash($randomString, PASSWORD_DEFAULT);
+echo "ハッシュしたパスワード：\n";
+echo password_hash($randomString, PASSWORD_DEFAULT) . "\n";
 
 /**
  * @param int $length
  * @return bool|string
  */
-public function random($length = 8)
+function random(int $length)
 {
-    return substr(str_shuffle(empty($argv[0]) ? DEFAULT_STRING : $argv[0]), 0, $length);
+    return substr(str_shuffle(empty($argv[2]) ? DEFAULT_STRING : $argv[2]), 0, $length);
 }
