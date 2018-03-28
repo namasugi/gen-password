@@ -15,7 +15,7 @@
 
 ## 実行コマンド
 ```sh
-$./generate.sh パスワードの桁数
+$./generate.sh "argument1" "argument2" "argument3"
 ```
 
 ## 前提
