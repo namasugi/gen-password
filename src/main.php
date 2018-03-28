@@ -16,7 +16,7 @@ if (!empty($argv[2])) {
     // パスワード化文字列パターン設定
     $stringPattern = empty($argv[3]) ? DEFAULT_STRINGS : $argv[3];
     // 第1引数を設定していればランダム生成する文字列の長さを第一引数にする
-    $stringLength = intval($argv[1]) ?: DEFAULT_STRING_RENGTH
+    $stringLength = intval($argv[1]) ?: DEFAULT_STRING_RENGTH;
     $string = random($stringLength, $stringPattern);
 }
 
@@ -27,6 +27,7 @@ echo password_hash($string, PASSWORD_DEFAULT) . "\n";
 
 /**
  * @param int $length
+ * @param string $pattern
  * @return bool|string
  */
 function random(int $length, string $pattern)
